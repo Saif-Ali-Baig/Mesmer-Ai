@@ -1,0 +1,29 @@
+.app-container {
+  background-color: #e6f0fa;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.mode-button, .mic-button {
+  background-color: #68d391;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.mode-button:focus, .mic-button:focus {
+  outline: 3px solid #2f855a;
+}
+
+.login-form input {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 18px;
+}

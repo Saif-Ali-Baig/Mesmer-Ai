@@ -1,0 +1,32 @@
+services:
+  go:
+    build:
+      context: .
+      dockerfile: Dockerfile.go
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./go:/app
+    depends_on:
+      - python
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    volumes:
+      - ./python:/app
+      - C:/Users/moida/Downloads/google_auth.json:/app/google_auth.json  # Your path here
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=jace
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=voice_companion
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
